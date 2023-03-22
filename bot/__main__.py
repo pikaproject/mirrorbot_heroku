@@ -76,18 +76,24 @@ def stats(update, context):
     mem_t = get_readable_file_size(memory.total)
     mem_a = get_readable_file_size(memory.available)
     mem_u = get_readable_file_size(memory.used)
-    stats = f'<b>╭─《🤖 BOT STATISTICS 🤖》</b>\n' \
-                    f'<b>├ Updated On: </b>{last_commit}\n'\
-                    f'<b>├ Uptime: </b>{currentTime}\n'\
-                    f'<b>├ Version: </b>{version}\n'\
-                    f'<b>├ OS Uptime: </b>{osUptime}\n'\
-                    f'<b>├ CPU:</b> [{progress_bar(cpuUsage)}] {cpuUsage}%\n'\
-                    f'<b>├ RAM:</b> [{progress_bar(mem_p)}] {mem_p}%\n'\
-                    f'<b>├ Disk:</b> [{progress_bar(disk)}] {disk}%\n'\
-                    f'<b>├ Disk Free:</b> {free}\n'\
-                    f'<b>├ Upload Data:</b> {sent}\n'\
-                    f'<b>├ Download Data:</b> {recv}\n'\
-                    f'<b>╰ Created by :</b> <a href="https://t.me/XRofikX">𝑷𝒊𝒌𝒂𝒄𝒉𝒖 🐹</a>\n\n'
+    stats = f'<b>f'<b><u>REPOSITORY INFO</u></b>\n\n' \
+            f'<b>☞ Repository Version:</b> {version}\n'\
+            f'<b>☞ Updated:</b> {commit_date}\n'\
+            f'<b>☞ </b>{commit_time}\n'\
+            f'<b>☞ </b>{commit_from}\n'\
+            f'\n'\
+            f'<b><u>BOT INFO</u></b>\n\n'\
+            f'<b>☞ Uptime:</b> {currentTime}\n'\
+            f'<b>☞ System:</b> {osUptime}\n'\
+            f'\n'\
+            f'<b><u>SYSTEM INFO</u></b>\n\n'\
+            f'<b>☞ CPU Usage:</b> {cpuUsage}%\n'\
+            f'<b>☞ RAM Usage:</b> {mem_p}%\n'\
+            f'<b>☞ Disk Usage:</b> {disk}%\n'\
+            f'<b>☞ Free Disk Space:</b> {free}\n'\
+            f'<b>☞ Total Disk Space:</b> {total}\n'\
+            f'<b>☞ Uploaded Data:</b> {sent}\n'\
+            f'<b>☞ Downloaded Data:</b> {recv}\n\n'
 
 
 
