@@ -76,7 +76,7 @@ def stats(update, context):
     mem_t = get_readable_file_size(memory.total)
     mem_a = get_readable_file_size(memory.available)
     mem_u = get_readable_file_size(memory.used)
-    stats = f'<b>f'<b><u>REPOSITORY INFO</u></b>\n\n' \
+    stats = <b><u>REPOSITORY INFO</u></b>\n\n' \
             f'<b>☞ Repository Version:</b> {version}\n'\
             f'<b>☞ Updated:</b> {commit_date}\n'\
             f'<b>☞ </b>{commit_time}\n'\
