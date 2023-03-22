@@ -266,10 +266,10 @@ class MirrorLeechListener:
         BOT_PM_X = get_bot_pm(user_id_)     
         
         NAME_FONT = config_dict['NAME_FONT']
-        slmsg = f"Name: <{NAME_FONT}>{escape(name)}</{NAME_FONT}>\n\n"
-        slmsg += f"\n"
-        slmsg += f"<b>• Size:</b> {size}\n"
-        slmsg += f"<b>• Added by:</b> {self.tag} | <code>{self.user_id}</code>\n\n"
+        slmsg = f"<b>_____《🤖 MikaMirror 🤖》_____</b>\n\n☞ Name: <{NAME_FONT}>{escape(name)}</{NAME_FONT}>\n\n"
+        #slmsg += f"\n"
+        slmsg += f"<b>☞ Size:</b> {size}\n"
+        slmsg += f"<b>☞ Added by:</b> {self.tag} | <code>{self.user_id}</code>\n\n"
         if 'link_logs' in user_data:
             try:
                 upper = f"‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒\n"
@@ -329,7 +329,7 @@ class MirrorLeechListener:
 
 
 
-        msg = f"<b>Name: </b><{config_dict['NAME_FONT']}>{escape(name)}</{config_dict['NAME_FONT']}>\n\n<b>• Size: </b>{size}"
+        msg = f"<b>_____《🤖 MikaMirror 🤖》_____</b>\n\n<b>☞ Name: </b><{config_dict['NAME_FONT']}>{escape(name)}</{config_dict['NAME_FONT']}>\n<b>☞ Size: </b>{size}"
 
         if self.isLeech:
             if config_dict['SOURCE_LINK']:
@@ -378,11 +378,11 @@ class MirrorLeechListener:
             # else:
             #     botstart = ''
 
-            msg += f'\n<b>• Total Files: </b>{folders}'
+            msg += f'\n<b>☞ Total Files: </b>{folders}'
             if typ != 0:
-                msg += f'\n<b>• Corrupted Files: </b>{typ}'
-            msg += f'\n<b>• It Took:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-            msg += f'\n<b>• Leeched By: </b>{self.tag}\n\n'
+                msg += f'\n<b>☞ Corrupted Files: </b>{typ}'
+            msg += f'\n<b>☞ It Took:</b> {get_readable_time(time() - self.message.date.timestamp())}'
+            msg += f'\n\n<b>☞ Leeched By: </b>{self.tag}\n\n'
 
             if not self.isPrivate and config_dict['SAVE_MSG']:
                 buttons.sbutton('Save This Message', 'save', 'footer')
@@ -438,18 +438,18 @@ class MirrorLeechListener:
                 return     
 
         else:
-            msg += f'\n<b>• Type: </b>{typ}'
+            msg += f'\n<b>☞ Type: </b>{typ}'
             if typ == "Folder":
-                msg += f'\n<b>• SubFolders: </b>{folders}'
-                msg += f'\n<b>• Files: </b>{files}'
-            msg += f'\n<b>• It Took:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-            msg += f'\n<b>• Mirrored By:</b> {self.tag}\n\n' 
+                msg += f'\n<b>☞ SubFolders: </b>{folders}'
+                msg += f'\n<b>☞ Files: </b>{files}'
+            msg += f'\n<b>☞ It Took:</b> {get_readable_time(time() - self.message.date.timestamp())}'
+            msg += f'\n\n<b>☞ Mirrored By:</b> {self.tag}\n\n' 
             buttons = ButtonMaker()
             link = short_url(link, user_id_)
             if config_dict['DISABLE_DRIVE_LINK'] and self.message.chat.type != 'private':
                 pass
             else:
-                buttons.buildbutton("Drive Link", link)
+                buttons.buildbutton("☁️ Google Drive", link)
             LOGGER.info(f'Done Uploading {name}')
             _, INDEXURL = getGDriveUploadUtils(user_id_, self.u_index, self.c_index)
             if INDEX_URL:= INDEXURL:
@@ -458,14 +458,14 @@ class MirrorLeechListener:
                 if typ == "Folder":
                     share_url += '/'
                     share_url = short_url(share_url, user_id_)
-                    buttons.buildbutton("Index Link", share_url)
+                    buttons.buildbutton("⚡ Google Index", share_url)
                 else:
                     share_url = short_url(share_url, user_id_)
-                    buttons.buildbutton("Index Link", share_url)
+                    buttons.buildbutton("⚡ Google Index", share_url)
                     if config_dict['VIEW_LINK']:
                         share_urls = f'{INDEX_URL}/{url_path}?a=view'
                         share_urls = short_url(share_urls, user_id_)
-                        buttons.buildbutton("View Link", share_urls)
+                        buttons.buildbutton("🌐 View Link", share_urls)
                     if config_dict['SOURCE_LINK']:
                         try:
                             mesg = message_args[1]
