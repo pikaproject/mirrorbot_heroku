@@ -236,45 +236,46 @@ def get_readable_message():
             if SAFE_MODE == True:
                 msg += f""
             else:
-                msg += f"<b>{escape(str(download.name()))}</b>\n"
+                msg += f"<b>_____《🤖 MikaMirror 🤖》_____</b>"
+                msg += f"\n\n<b>☞ {escape(str(download.name()))}</b>\n"
             if download.status() not in [MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_CONVERTING, MirrorStatus.STATUS_QUEUEDL, MirrorStatus.STATUS_QUEUEUP]:
-                msg += f"\n<b>┌ {download.status()} with {download.eng()}</b>"
-                msg += f"\n<b>├ {get_progress_bar_string(download)}</b> {download.progress()}"
-                msg += f"\n<b>├ Process:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
-                msg += f"\n<b>├ Speed:</b> {download.speed()}"
-                msg += f"\n<b>├ Estimate:</b> {download.eta()}"
-                msg += f"\n<b>├ Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
+                msg += f"\n<b>☞ {download.status()} with {download.eng()}</b>"
+                msg += f"\n<b>☞ {get_progress_bar_string(download)}</b> {download.progress()}"
+                msg += f"\n<b>☞Process:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                msg += f"\n<b>☞ Speed:</b> {download.speed()}"
+                msg += f"\n<b>☞ Estimate:</b> {download.eta()}"
+                msg += f"\n<b>☞ Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
                     
 
                 if hasattr(download, 'seeders_num'):
                     try:
-                        msg += f"\n<b>├ Seeders:</b> {download.seeders_num()} | <b>Leechers:</b> {download.leechers_num()}"
-                        msg += f"\n<b>├ Select:</b> <code>/{BotCommands.BtSelectCommand} {download.gid()}</code>"
+                        msg += f"\n<b>☞ Seeders:</b> {download.seeders_num()} | <b>Leechers:</b> {download.leechers_num()}"
+                        msg += f"\n<b>☞ Select:</b> <code>/{BotCommands.BtSelectCommand} {download.gid()}</code>"
                     except:
                         pass
                 if download.message.chat.type != 'private':
                     try:
                         chatid = str(download.message.chat.id)[4:]
-                        msg += f'\n<b>├ Source: </b><a href="https://t.me/c/{chatid}/{download.message.message_id}">{download.message.from_user.first_name}</a>'
-                        msg += f"\n<b>└ Cancel: </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"                 
+                        msg += f'\n<b>☞ Source: </b><a href="https://t.me/c/{chatid}/{download.message.message_id}">{download.message.from_user.first_name}</a>'
+                        msg += f"\n<b>☞ Cancel: </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"                 
                     except:
                         pass
                 else:
-                    msg += f'\n<b>├ User:</b> ️<code>{download.message.from_user.first_name}</code>'
-                    msg += f"\n<b>└ Cancel: </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                    msg += f'\n<b>☞ User:</b> ️<code>{download.message.from_user.first_name}</code>'
+                    msg += f"\n<b>☞ Cancel: </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
 
             elif download.status() == MirrorStatus.STATUS_SEEDING:
-                msg += f"\n<b>┌ Size: </b>{download.size()}"
-                msg += f"\n<b>├ Engine:</b> <code>qBittorrent v4.4.2</code>"
-                msg += f"\n<b>├ Speed: </b>{download.upload_speed()}"
-                msg += f"\n<b>├ Uploaded: </b>{download.uploaded_bytes()}"
-                msg += f"\n<b>├ Ratio: </b>{download.ratio()}"
+                msg += f"\n<b>☞ Size: </b>{download.size()}"
+                msg += f"\n<b>☞ Engine:</b> <code>qBittorrent v4.4.2</code>"
+                msg += f"\n<b>☞ Speed: </b>{download.upload_speed()}"
+                msg += f"\n<b>☞ Uploaded: </b>{download.uploaded_bytes()}"
+                msg += f"\n<b>☞ Ratio: </b>{download.ratio()}"
                 msg += f" | <b> Time: </b>{download.seeding_time()}"
-                msg += f"\n<b>├ Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
-                msg += f"\n<b>└ </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n<b>☞ Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
+                msg += f"\n<b>☞ To Cancel </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             else:
-                msg += f"\n<b>┌ {download.status()} with {download.eng()}</b>"
-                msg += f"\n<b>└ Size: </b>{download.size()}"
+                msg += f"\n<b>☞ {download.status()} with {download.eng()}</b>"
+                msg += f"\n<b>☞ Size: </b>{download.size()}"
             msg += f"\n<b>_________________________________</b>"
             msg += "\n\n"
             if index == STATUS_LIMIT:
@@ -310,10 +311,9 @@ def get_readable_message():
         
            
         bmsg = f"{TASKS_COUNT}"
-        bmsg += f"<b>• Bot Uptime:</b> {get_readable_time(time() - botStartTime)}"
-        bmsg += f"\n<b>• Free Disk:</b> {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)}"
-        bmsg += f"\n<b>• Total Downloading Speed:</b> {get_readable_file_size(dl_speed)}/s"
-        bmsg += f"\n<b>• Total Uploading Speed:</b> {get_readable_file_size(up_speed)}/s"
+        bmsg = f"<b>CPU:</b> {cpu_percent()}% | <b>FREE:</b> {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)}"
+            bmsg += f"\n<b>RAM:</b> {virtual_memory().percent}% | <b>UPTIME:</b> {get_readable_time(time() - botStartTime)}"
+            bmsg += f"\n<b>🔻 DL:</b> {get_readable_file_size(dl_speed)}/s | <b>🔺 UL:</b> {get_readable_file_size(up_speed)}/s"
         buttons = ButtonMaker()
         buttons.sbutton("Refresh", "status refresh")
         buttons.sbutton("Statistics", str(THREE))
@@ -654,7 +654,7 @@ def bot_sys_stats():
         if stats.status() == MirrorStatus.STATUS_SPLITTING:
             num_split += 1
     return f"""
-Modified by Chishiya.
+Modified by Pikachu.
 
 Tasks: {tasks}
 
