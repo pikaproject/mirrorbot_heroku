@@ -226,7 +226,7 @@ def start_clone(listelem):
             return sendMessage(msg2, bot, message)
 
     if files <= 20:
-        cc = f'\n<b>• Cloned By: </b>{tag}\n\n'
+        cc = f'\n\n<b>☞ Cloned By: </b>{tag}\n\n'
         msg = sendMessage(f"Cloning: <code>{link}</code>", bot, message)
         result, button = gd.clone(link, u_index, c_index)
         deleteMessage(bot, msg)
