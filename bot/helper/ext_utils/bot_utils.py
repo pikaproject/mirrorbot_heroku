@@ -232,10 +232,6 @@ def get_readable_message():
                 globals()['COUNT'] -= STATUS_LIMIT
                 globals()['PAGE_NO'] -= 1
         for index, download in enumerate(list(download_dict.values())[COUNT:], start=1):
-            SAFE_MODE = config_dict['SAFE_MODE']
-            if SAFE_MODE == True:
-                msg += f""
-            else:
             msg += f"<b>_____《🤖 MikaMirror 🤖》_____</b>"
             msg += f"\n\n<b>☞ <a href='{download.message.link}'>{download.status()}</a>: </b>"
             msg += f"<code>{escape(str(download.name()))}</code>"
