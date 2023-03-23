@@ -251,7 +251,7 @@ def start_clone(listelem):
             if reply_to is not None and config_dict['AUTO_DELETE_UPLOAD_MESSAGE_DURATION'] == -1:
                 reply_to.delete()
     else:
-        cc = f'\n<b>• Cloned By: </b>{tag}\n\n'
+        cc = f'\n/n<b>☞ Cloned By: </b>{tag}\n\n'
         drive = GoogleDriveHelper(name, user_id=user_id)
         gid = ''.join(SystemRandom().choices(ascii_letters + digits, k=12))
         clone_status = CloneStatus(drive, size, message, gid)
@@ -269,7 +269,7 @@ def start_clone(listelem):
                 delete_all_messages()
                 if BOT_PM_X:
                     if message.chat.type != 'private':
-                        msg = f"<b>Name: </b><{config_dict['NAME_FONT']}>{escape(name)}</{config_dict['NAME_FONT']}>\n"
+                        msg = f"<b>_____《🤖 MikaMirror 🤖》_____</b>\n\n<b>Name: </b><{config_dict['NAME_FONT']}>{escape(name)}</{config_dict['NAME_FONT']}>\n"
                         botpm = f"\n<b>Hey {tag}!, I have sent your cloned links in PM.</b>\n"
                         buttons = ButtonMaker()
                         b_uname = bot.get_me().username
