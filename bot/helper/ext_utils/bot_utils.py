@@ -237,7 +237,7 @@ def get_readable_message():
                 msg += f""
             else:
                 msg += f"<b>_____《🤖 MikaMirror 🤖》_____</b>\n\n"
-                msg += f"<b>Name: </b>\n"
+                msg += f"<b>Name: </b>"
                 msg += f"<code>{escape(str(download.name()))}</code>"
             if download.status() not in [MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_CONVERTING, MirrorStatus.STATUS_QUEUEDL, MirrorStatus.STATUS_QUEUEUP]:
                 msg += f"\n<b>☞ {download.status()} with {download.eng()}</b>"
