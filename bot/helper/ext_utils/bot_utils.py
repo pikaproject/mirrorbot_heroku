@@ -27,18 +27,18 @@ PAGES = 0
 
 
 class MirrorStatus:
-    STATUS_UPLOADING = "Uploading"
-    STATUS_DOWNLOADING = "Downloading"
+    STATUS_UPLOADING = "Upload"
+    STATUS_DOWNLOADING = "Download"
     STATUS_CLONING = "Cloning"
     STATUS_QUEUEDL = "Queue Download"
     STATUS_QUEUEUP = "Queue Upload"
     STATUS_PAUSED = "Paused"
-    STATUS_ARCHIVING = "Archiving"
-    STATUS_EXTRACTING = "Extracting"
-    STATUS_SPLITTING = "Splitting"
+    STATUS_ARCHIVING = "Archive"
+    STATUS_EXTRACTING = "Extract"
+    STATUS_SPLITTING = "Split"
     STATUS_CHECKING = "CheckUp"
     STATUS_SEEDING = "Seeding"
-    STATUS_CONVERTING = "Converting"
+    STATUS_CONVERTING = "Convert"
 
 class EngineStatus:
     STATUS_ARIA = "Aria2c"
@@ -237,7 +237,7 @@ def get_readable_message():
             msg += f"<code>{escape(str(download.name()))}</code>"
             if download.status() not in [MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_CONVERTING, MirrorStatus.STATUS_QUEUEDL, MirrorStatus.STATUS_QUEUEUP]:
                 msg += f"\n<b>☞ {get_progress_bar_string(download)}</b> {download.progress()}"
-                msg += f"\n<b>☞Process:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
+                msg += f"\n<b>☞ Process:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                 msg += f"\n<b>☞ Speed:</b> {download.speed()}"
                 msg += f"\n<b>☞ Estimate:</b> {download.eta()}"
                 msg += f"\n<b>☞ Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
