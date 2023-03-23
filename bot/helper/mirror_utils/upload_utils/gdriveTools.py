@@ -384,7 +384,7 @@ class GoogleDriveHelper:
                     return "your clone has been stopped and cloned data has been deleted!", "cancelled"
                 _, f_name, _ = change_filename(meta.get("name"), self.user_id, all_edit=False, mirror_type=True)
                 msg += f'<b>_____《🤖 MikaMirror 🤖》_____</b>'
-                msg += f'\n\n<b>Name: </b><code>{f_name}</code>\n'
+                msg += f'\n\n<b>☞ Name: </b><code>{f_name}</code>\n'
                 msg += f'\n<b>☞ Size: </b>{get_readable_file_size(self.transferred_size)}'
                 msg += f'\n<b>☞ Type: </b>Folder'
                 msg += f'\n<b>☞ SubFolders: </b>{self.__total_folders}'
@@ -400,9 +400,9 @@ class GoogleDriveHelper:
             else:
                 file = self.__copyFile(meta.get('id'), GDRIVEID, meta.get('name'))
                 msg += f'<b>_____《🤖 MikaMirror 🤖》_____</b>'
-                msg += f'\n\n<b>Name: </b><code>{file.get("name")}</code>\n'
-                msg += f'\n<b>• Size: </b>{get_readable_file_size(int(meta.get("size", 0)))}'
-                msg += f'\n<b>• Type: </b>{mime_type}'
+                msg += f'\n\n<b>☞ Name: </b><code>{file.get("name")}</code>\n'
+                msg += f'\n<b>☞ Size: </b>{get_readable_file_size(int(meta.get("size", 0)))}'
+                msg += f'\n<b>☞ Type: </b>{mime_type}'
                 durl = self.__G_DRIVE_BASE_DOWNLOAD_URL.format(file.get("id"))
                 buttons = ButtonMaker()
                 durl = short_url(durl, self.user_id)
