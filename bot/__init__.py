@@ -465,10 +465,10 @@ LEECH_LOG_INDEXING = environ.get('LEECH_LOG_INDEXING', '')
 LEECH_LOG_INDEXING = LEECH_LOG_INDEXING.lower() == 'true'
 
 BOT_PM = environ.get('BOT_PM', '')
-BOT_PM = BOT_PM.lower() == 'true'
+BOT_PM = BOT_PM.lower() == 'false'
 
 FORCE_BOT_PM = environ.get('FORCE_BOT_PM', '')
-FORCE_BOT_PM = FORCE_BOT_PM.lower() == 'true'
+FORCE_BOT_PM = FORCE_BOT_PM.lower() == 'false'
 
 SOURCE_LINK = environ.get('SOURCE_LINK', '')
 SOURCE_LINK = SOURCE_LINK.lower() == 'true'
