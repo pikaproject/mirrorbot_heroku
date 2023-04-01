@@ -76,11 +76,10 @@ def stats(update, context):
     mem_t = get_readable_file_size(memory.total)
     mem_a = get_readable_file_size(memory.available)
     mem_u = get_readable_file_size(memory.used)
-    stats = f'<b><u>BOT INFO</u></b>\n\n'\
+    stats = f'<b>_____《🤖 MikaMirror 🤖》_____</b>\n\n'\
+            f'<b><u>SYSTEM INFO</u></b>\n'\
             f'<b>☞ Uptime:</b> {currentTime}\n'\
-            f'<b>☞ System:</b> {osUptime}\n'\
-            f'\n'\
-            f'<b><u>SYSTEM INFO</u></b>\n\n'\
+            f'<b>☞ System:</b> {osUptime}\n'\          
             f'<b>☞ CPU Usage:</b> {cpuUsage}%\n'\
             f'<b>☞ RAM Usage:</b> {mem_p}%\n'\
             f'<b>☞ Disk Usage:</b> {disk}%\n'\
