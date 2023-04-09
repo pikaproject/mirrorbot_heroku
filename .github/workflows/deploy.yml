@@ -30,3 +30,5 @@ jobs:
           HD_DATABASE_URL: ${{secrets.DATABASE_URL}}
           HD_BOT_TOKEN: ${{secrets.BOT_TOKEN}}
           HD_SAFE_MODE: ${{secrets.SAFE_MODE}}
+          HD_FORCE_BOT_PM: ${{secrets.FORCE_BOT_PM}}
+          HD_BOT_PM: ${{secrets.BOT_PM}}
